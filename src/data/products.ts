@@ -43,4 +43,5 @@ export const PRODUCTS: Product[] = [
     { id: 16, name: 'Monolith Coat', category: 'outerwear', gender: 'men', colors: ['black', 'brown'], sizes: ['m', 'l', 'xl'], price: 399, material: 'polyester', image: '/assets/images/collection-1.png', badge: 'limited' },
     { id: 17, name: 'Base Layer Tee', category: 'essentials', gender: 'unisex', colors: ['black', 'white', 'gray', 'navy'], sizes: ['xs', 's', 'm', 'l', 'xl', 'xxl'], price: 59, material: 'cotton', image: '/assets/images/collection-3.png', badge: null },
     { id: 18, name: 'Apex Hoodie', category: 'hoodies', gender: 'men', colors: ['black', 'navy', 'gray'], sizes: ['m', 'l', 'xl', 'xxl'], price: 209, material: 'fleece', image: '/assets/images/collection-4.png', badge: null },
+    { id: 19, name: 'Gray Vest', category: 'techwear', gender: 'women', colors: ['gray', 'white'], sizes: ['xs', 's', 'm', 'l'], price: 139, material: 'nylon', image: '/assets/images/collection-5.jpeg', badge: 'sale', originalPrice: 179 },
 ];
