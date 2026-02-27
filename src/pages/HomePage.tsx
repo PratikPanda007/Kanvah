@@ -22,7 +22,7 @@ export default function HomePage() {
 
         const handleScroll = () => {
             const rect = heroSection.getBoundingClientRect();
-            const sectionHeight = heroSection.offsetHeight;
+            //const sectionHeight = heroSection.offsetHeight;
 
             // Only animate while hero section is visible
             if (rect.bottom < 0 || rect.top > window.innerHeight) return;
