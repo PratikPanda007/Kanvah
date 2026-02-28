@@ -1,10 +1,25 @@
+import { useNavigate } from 'react-router-dom';
 import { type Product, COLOR_HEX } from '../data/products';
+import { useCart } from '../context/CartContext';
 
 interface Props {
     products: Product[];
 }
 
 export default function ProductGrid({ products }: Props) {
+    const navigate = useNavigate();
+    const { addToCart } = useCart();
+
+    const handleQuickView = (e: React.MouseEvent, productId: number) => {
+        e.stopPropagation();
+        navigate(`/product/${productId}`);
+    };
+
+    const handleAddToCart = (e: React.MouseEvent, product: Product) => {
+        e.stopPropagation();
+        addToCart(product, product.sizes[0], product.colors[0]);
+    };
+
     if (products.length === 0) {
         return (
             <div className="product-grid">
@@ -20,13 +35,18 @@ export default function ProductGrid({ products }: Props) {
     return (
         <div className="product-grid">
             {products.map(product => (
-                <div className="product-card" key={product.id} data-id={product.id}>
+                <div
+                    className="product-card"
+                    key={product.id}
+                    data-id={product.id}
+                    onClick={() => navigate(`/product/${product.id}`)}
+                >
                     <div className="product-image">
                         <img src={product.image} alt={product.name} loading="lazy" />
                         {product.badge && <span className={`product-badge ${product.badge}`}>{product.badge}</span>}
                         <div className="product-quick-actions">
-                            <button className="quick-action-btn">Quick View</button>
-                            <button className="quick-action-btn">Add to Cart</button>
+                            <button className="quick-action-btn" onClick={e => handleQuickView(e, product.id)}>Quick View</button>
+                            <button className="quick-action-btn" onClick={e => handleAddToCart(e, product)}>Add to Cart</button>
                         </div>
                     </div>
                     <div className="product-info">
