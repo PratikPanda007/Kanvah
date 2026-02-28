@@ -409,7 +409,6 @@ button {
     user-select: none;
     z-index: 1;
     line-height: 1;
-    will-change: transform;
 }
 
 .hero-k {
@@ -1953,7 +1952,29 @@ button {
 /* ========================================
    RESPONSIVE
    ======================================== */
+
+/* ---------- Large Desktop / Small Laptop ---------- */
+@media (max-width: 1200px) {
+    .releases-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .footer-grid {
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+        gap: 36px;
+    }
+}
+
+/* ---------- Tablet ---------- */
 @media (max-width: 1024px) {
+    .section {
+        padding: 100px 32px;
+    }
+
     .collections-grid {
         grid-template-columns: 1fr;
     }
@@ -1983,11 +2004,35 @@ button {
     .product-grid {
         grid-template-columns: repeat(2, 1fr);
     }
+
+    .shop-toolbar {
+        gap: 12px;
+    }
+
+    .shop-search {
+        max-width: 280px;
+    }
+
+    .lookbook {
+        padding: 60px 32px;
+    }
+
+    .hero-overlay {
+        padding: 0 40px 80px;
+    }
+
+    .hero-content {
+        max-width: 420px;
+    }
 }
 
+/* ---------- Mobile Landscape / Small Tablet ---------- */
 @media (max-width: 768px) {
+
+    /* --- Navbar --- */
     .navbar {
-        padding: 0 20px;
+        padding: 0 16px;
+        height: 64px;
     }
 
     .nav-links {
@@ -1998,30 +2043,127 @@ button {
         display: flex;
     }
 
+    .nav-logo {
+        font-size: 1.35rem;
+    }
+
+    .nav-actions {
+        gap: 8px;
+    }
+
+    .nav-icon-btn {
+        width: 36px;
+        height: 36px;
+    }
+
+    /* --- General Sections --- */
     .section {
-        padding: 80px 20px;
+        padding: 64px 16px;
     }
 
-    .hero-overlay {
-        padding: 0 24px 80px;
+    .section-header {
+        margin-bottom: 40px;
     }
 
-    .hero-scroll-indicator {
-        right: 24px;
+    .section-title {
+        font-size: clamp(1.6rem, 6vw, 2.5rem);
     }
 
-    .hero-model {
-        max-width: 85%;
-        height: 75%;
+    /* --- Hero --- */
+    .hero {
+        min-height: unset;
     }
 
     .hero-bg-text {
-        font-size: clamp(5rem, 22vw, 12rem);
+        top: 55%;
     }
 
+    .hero-overlay {
+        padding: 0 20px 60px;
+    }
+
+    .hero-content {
+        max-width: 100%;
+    }
+
+    .hero-tagline {
+        font-size: 0.68rem;
+        margin-bottom: 12px;
+    }
+
+    .hero-title {
+        font-size: clamp(2rem, 7vw, 3rem);
+        margin-bottom: 20px;
+    }
+
+    .hero-cta {
+        font-size: 0.75rem;
+        padding: 12px 24px;
+    }
+
+    .hero-scroll-indicator {
+        right: 16px;
+        bottom: 20px;
+    }
+
+    .hero-model {
+        max-width: 100%;
+        height: 95%;
+        transform: translateX(-50%) scale(1.8);
+        transform-origin: center bottom;
+    }
+
+    .hero-model img {
+        filter: contrast(1.15) brightness(1.4);
+    }
+
+    .hero-bg-text {
+        font-size: clamp(3.5rem, 14vw, 8rem);
+    }
+
+    /* --- Collections --- */
+    .collection-card {
+        aspect-ratio: 16/10;
+    }
+
+    .collection-card-large {
+        aspect-ratio: 16/10;
+    }
+
+    .card-overlay {
+        padding: 20px;
+    }
+
+    .card-title {
+        font-size: 1.25rem;
+    }
+
+    .card-desc {
+        font-size: 0.8rem;
+        margin-bottom: 10px;
+    }
+
+    /* --- Releases --- */
+    .releases-grid {
+        gap: 16px;
+    }
+
+    .release-image {
+        margin-bottom: 12px;
+    }
+
+    .release-name {
+        font-size: 0.9rem;
+    }
+
+    .release-price {
+        font-size: 0.82rem;
+    }
+
+    /* --- About (Home) --- */
     .about-grid {
         grid-template-columns: 1fr;
-        gap: 40px;
+        gap: 32px;
     }
 
     .about-image {
@@ -2030,30 +2172,103 @@ button {
     }
 
     .about-stats {
-        gap: 32px;
+        gap: 24px;
+        flex-wrap: wrap;
     }
 
-    .footer-grid {
-        grid-template-columns: 1fr;
-        gap: 32px;
+    .stat-number {
+        font-size: 1.6rem;
     }
 
-    .footer-bottom {
-        flex-direction: column;
-        gap: 20px;
-        text-align: center;
+    .about-desc {
+        font-size: 0.92rem;
     }
 
+    /* --- Lookbook (Home) --- */
     .lookbook {
-        min-height: 60vh;
+        min-height: 55vh;
+        padding: 60px 20px;
     }
 
+    .lookbook-title {
+        font-size: clamp(2rem, 6vw, 3.5rem);
+    }
+
+    .lookbook-desc {
+        font-size: 0.92rem;
+        margin-bottom: 28px;
+    }
+
+    .lookbook-cta {
+        padding: 14px 32px;
+        font-size: 0.75rem;
+    }
+
+    /* --- Newsletter --- */
     .newsletter-form {
         flex-direction: column;
     }
 
     .newsletter-btn {
         width: 100%;
+    }
+
+    .newsletter-inner {
+        padding: 0 4px;
+    }
+
+    .newsletter-title {
+        font-size: clamp(1.5rem, 5vw, 2.2rem);
+    }
+
+    /* --- Footer --- */
+    .footer {
+        padding: 60px 16px 32px;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 28px;
+    }
+
+    .footer-brand {
+        grid-column: 1 / -1;
+    }
+
+    .footer-logo {
+        font-size: 1.2rem;
+    }
+
+    .footer-tagline {
+        font-size: 0.85rem;
+    }
+
+    .footer-heading {
+        font-size: 0.75rem;
+        margin-bottom: 14px;
+    }
+
+    .footer-link {
+        font-size: 0.82rem;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+    }
+
+    /* --- Shop / Filters --- */
+    .page-header {
+        padding: 96px 16px 36px;
+    }
+
+    .page-title {
+        font-size: clamp(1.8rem, 6vw, 2.8rem);
+    }
+
+    .page-subtitle {
+        font-size: 0.9rem;
     }
 
     .filter-sidebar {
@@ -2063,6 +2278,7 @@ button {
         width: 300px;
         min-width: 300px;
         height: 100vh;
+        height: 100dvh;
         z-index: 1001;
         transition: left var(--transition-medium);
         padding-top: 24px;
@@ -2089,25 +2305,359 @@ button {
     }
 
     .shop-content {
-        padding: 20px;
+        padding: 16px;
     }
 
-    .page-header {
-        padding: 100px 20px 40px;
+    .shop-toolbar {
+        flex-wrap: wrap;
+        gap: 10px;
+        padding: 16px 0;
+    }
+
+    .shop-search {
+        max-width: none;
+        flex: 1 1 100%;
+        order: 3;
+    }
+
+    .filter-toggle-btn {
+        order: 1;
+    }
+
+    .shop-meta {
+        order: 2;
+        margin-left: auto;
+        gap: 10px;
+    }
+
+    .shop-count {
+        font-size: 0.75rem;
+    }
+
+    .shop-sort {
+        padding: 8px 32px 8px 12px;
+        font-size: 0.78rem;
+    }
+
+    .shop-search-input {
+        padding: 10px 14px 10px 40px;
+        font-size: 0.85rem;
+    }
+
+    /* --- Marquee --- */
+    .marquee-section {
+        padding: 14px 0;
+    }
+
+    .marquee-content span {
+        font-size: 0.72rem;
+        letter-spacing: 0.2em;
+    }
+
+    .marquee-content {
+        gap: 28px;
+    }
+
+    /* --- Mobile Menu --- */
+    .mobile-link {
+        font-size: 1.6rem;
+    }
+
+    .mobile-menu-content {
+        gap: 24px;
     }
 }
 
+/* ---------- Mobile Portrait ---------- */
 @media (max-width: 480px) {
-    .releases-grid {
-        grid-template-columns: 1fr;
+    .section {
+        padding: 52px 14px;
+    }
+
+    .hero {
+        min-height: unset;
+        height: 70vh;
+    }
+
+    .hero-overlay {
+        padding: 0 16px 48px;
+    }
+
+    .hero-title {
+        font-size: clamp(1.7rem, 8vw, 2.5rem);
+        margin-bottom: 16px;
+    }
+
+    .hero-cta {
+        font-size: 0.7rem;
+        padding: 11px 20px;
+        gap: 8px;
     }
 
     .hero-model {
-        max-width: 95%;
-        height: 65%;
+        max-width: 100%;
+        height: 95%;
+        transform: translateX(-50%) scale(2.2);
+        transform-origin: center bottom;
+    }
+
+    .hero-model img {
+        filter: contrast(1.15) brightness(1.5);
+    }
+
+    .hero-bg-text {
+        font-size: clamp(2.5rem, 13vw, 4.5rem);
+    }
+
+    .releases-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .release-image {
+        margin-bottom: 10px;
+    }
+
+    .release-name {
+        font-size: 0.82rem;
+    }
+
+    .release-price {
+        font-size: 0.78rem;
+    }
+
+    .release-badge {
+        font-size: 0.58rem;
+        padding: 3px 8px;
+    }
+
+    .collection-card {
+        aspect-ratio: 3/4;
+    }
+
+    .collection-card-large {
+        aspect-ratio: 3/4;
+    }
+
+    .card-title {
+        font-size: 1.1rem;
+    }
+
+    .about-stats {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .stat-number {
+        font-size: 1.4rem;
+    }
+
+    .stat-label {
+        font-size: 0.68rem;
+    }
+
+    .lookbook {
+        min-height: 50vh;
+    }
+
+    .lookbook-title {
+        font-size: clamp(1.7rem, 7vw, 2.8rem);
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .footer-bottom p {
+        font-size: 0.72rem;
+    }
+
+    .social-link {
+        width: 36px;
+        height: 36px;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .product-name {
+        font-size: 0.82rem;
+    }
+
+    .product-category-label {
+        font-size: 0.65rem;
+    }
+
+    .product-price .current {
+        font-size: 0.82rem;
+    }
+
+    .product-price .original {
+        font-size: 0.72rem;
+    }
+
+    .product-badge {
+        font-size: 0.55rem;
+        padding: 3px 7px;
+    }
+
+    .product-image {
+        margin-bottom: 10px;
+    }
+
+    .newsletter-form {
+        border-radius: 6px;
+    }
+
+    .newsletter-input {
+        padding: 14px 16px;
+        font-size: 0.85rem;
+    }
+
+    .newsletter-btn {
+        padding: 14px 24px;
+        font-size: 0.75rem;
+    }
+
+    .pagination {
+        margin-top: 40px;
+        gap: 6px;
+    }
+
+    .pagination-btn {
+        width: 36px;
+        height: 36px;
+        font-size: 0.8rem;
+    }
+
+    .page-header {
+        padding: 88px 14px 28px;
+    }
+
+    .page-breadcrumb {
+        font-size: 0.68rem;
+    }
+
+    .shop-toolbar {
+        padding: 12px 0;
+        margin-bottom: 16px;
+    }
+
+    .filter-toggle-btn {
+        padding: 8px 14px;
+        font-size: 0.75rem;
+    }
+}
+
+/* ---------- Extra Small Mobile ---------- */
+@media (max-width: 360px) {
+    .navbar {
+        padding: 0 12px;
+    }
+
+    .nav-logo {
+        font-size: 1.15rem;
+    }
+
+    .section {
+        padding: 44px 12px;
+    }
+
+    .hero-bg-text {
+        font-size: clamp(2.5rem, 20vw, 5rem);
+    }
+
+    .hero-overlay {
+        padding: 0 12px 40px;
+    }
+
+    .hero-title {
+        font-size: 1.6rem;
+    }
+
+    .releases-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
     }
 
     .product-grid {
         grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .footer {
+        padding: 48px 12px 24px;
+    }
+
+    .newsletter-title {
+        font-size: 1.4rem;
+    }
+
+    .mobile-link {
+        font-size: 1.3rem;
+    }
+
+    .page-header {
+        padding: 84px 12px 24px;
+    }
+
+    .page-title {
+        font-size: 1.6rem;
+    }
+
+    .about-stats {
+        flex-direction: column;
+        gap: 16px;
+        align-items: flex-start;
+    }
+}
+
+/* ---------- Safe area for notched devices ---------- */
+@supports (padding: env(safe-area-inset-bottom)) {
+    .footer-bottom {
+        padding-bottom: calc(16px + env(safe-area-inset-bottom));
+    }
+
+    .mobile-menu {
+        padding-bottom: env(safe-area-inset-bottom);
+    }
+}
+
+/* ---------- Landscape phones ---------- */
+@media (max-height: 500px) and (orientation: landscape) {
+    .hero {
+        min-height: 100vh;
+    }
+
+    .hero-model {
+        height: 90%;
+        max-width: 40%;
+    }
+
+    .hero-bg-text {
+        font-size: clamp(4rem, 14vw, 10rem);
+    }
+
+    .hero-overlay {
+        padding: 0 32px 24px;
+    }
+
+    .hero-title {
+        font-size: clamp(1.4rem, 4vw, 2rem);
+    }
+
+    .hero-scroll-indicator {
+        display: none;
+    }
+
+    .lookbook-hero {
+        min-height: 100vh;
+    }
+
+    .about-hero {
+        min-height: 100vh;
     }
 }
